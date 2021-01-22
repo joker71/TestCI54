@@ -9,7 +9,10 @@
 // obj= Promise(getAPI());
 
 // console.log(obj);
-import "./question.js"
-import "./screen.js"
+import "./questionArr.js";
+import "./questionCard.js";
+import "./headerQues.js"
 
-document.getElementById("app").innerHTML=`<list-question></list-question>`
+document.getElementById("app").innerHTML=`
+<header-ques></header-ques>
+<question-arr></question-arr>`;
