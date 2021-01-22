@@ -1,5 +1,6 @@
 let number = 0;
 let scroce = 0;
+let sumQues=0;
 let style = ` <style>
 .container {
     height: 100%;
@@ -69,6 +70,7 @@ class Question extends HTMLElement {
         this.anserlis = this.getAttribute("answer");
         this.ans = this.anserlis.split(",");
         this.length = this.getAttribute("length");
+        sumQues= this.length;
         this._shadowRoot.innerHTML = `
        ${style}
         <div class="container" id="card">
@@ -102,7 +104,7 @@ class Question extends HTMLElement {
                     this.changePoint(true);
                 }
                 else {
-                    alert(`Wrong Answer! Correct Answer is ${this.correct}`);
+                    alert(`Wrong Answer! Correct Answer is ${this.corrrect}`);
                     this.changePoint(false);
                 }
                 question.style.display = "none";
@@ -114,7 +116,7 @@ class Question extends HTMLElement {
     changePoint(status) {
         number++;
         if (status) scroce = scroce + 10;
-        if (number === 5) {
+        if (number === sumQues) {
             console.log('done')
             alert(`Finished! Your score is ${scroce}. You got ${scroce / 10} questions correct out of ${this.length} questions`)
         }
